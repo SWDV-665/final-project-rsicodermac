@@ -1,0 +1,62 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-title>
+         Notify Me!
+    </ion-title>
+   </ion-toolbar>
+   <ion-buttons end>
+      <button *ngIf="notificationExists" ion-button icon-only click)="cancelNotifications(1)">
+         <ion-icon ios="ios-close" md="md-close"></ion-icon> Cancel
+      </button>
+   </ion-buttons>
+</ion-header>
+
+<ion-content padding>
+   <div margin-top margin-bottom>
+      <p>
+         Setup Notification Below.
+      </p>
+
+     <form [formGroup]="form" (ngSubmit)="generateReminder()">
+       <ion-list>
+           <ion-item margin-bottom>
+             <ion-input
+                type="text"
+                placeholder="Message heading"
+                clearInput=true
+                [(ngModel)]="notification"
+                formControlName="notification">
+            </ion-input>
+          </ion-item>
+            <ion-item margin-bottom>
+             <ion-textarea placeholder="Message content" clearInput=true [(ngModel)]="summary" formControlName="summary">
+            </ion-textarea>
+          </ion-item>
+
+
+          <span
+             ion-button
+             block
+             padding
+             color="secondary"
+             (click)="selectDateForScheduling()"
+              margin-bottom>Select publishing date/time</span>
+
+          <input
+             type="hidden"
+             formControlName="published"
+             [(ngModel)]="published">
+
+
+             <button
+                ion-button
+                color="primary"
+                text-center
+              block [disabled]="!form.valid">Create notification</button>
+        </ion-list>
+     </form>
+
+  </div>
+
+
+</ion-content>

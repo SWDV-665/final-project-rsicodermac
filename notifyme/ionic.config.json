@@ -1,0 +1,8 @@
+{
+  "name": "notifyMe",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "44417e91"
+}
